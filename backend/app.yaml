@@ -15,3 +15,7 @@ handlers:
 libraries:
 - name: webapp2
   version: "2.5.1"
+- name: PIL
+  version: latest
+- name: numpy
+  version: latest

@@ -9,8 +9,7 @@ class HwHandler(webapp.RequestHandler):
 
 
 def main():
-    application = webapp.WSGIApplication([('/', HwHandler)],
-                                         debug=True)
+    application = webapp.WSGIApplication([('/', HwHandler)], debug=True)
     util.run_wsgi_app(application)
 
 
