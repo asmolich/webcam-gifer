@@ -7,5 +7,9 @@
             "scripts": ["app.js"]
         }
     },
-   
+
+    "sandbox": {
+        "pages": ["submitter.html"]
+    },
+
     "permissions": [  "videoCapture", "audioCapture" ]}

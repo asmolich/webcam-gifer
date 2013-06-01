@@ -4,10 +4,7 @@ $('#mainLinkAbout').click(function () {
     $('#canvasAbout').removeClass('hidden');
     $('#mainLinkMain').parent().removeClass('active');
     $('#mainLinkAbout').parent().addClass('active');
-
-
 });
-
 
 $('#mainLinkMain').click(function () {
     $('#canvasHome').removeClass('hidden');
@@ -15,17 +12,12 @@ $('#mainLinkMain').click(function () {
     $('#canvasAbout').addClass('hidden');
     $('#mainLinkAbout').parent().removeClass('active');
     $('#mainLinkMain').parent().addClass('active');
-
 });
-
 
 $('#btnNewCapture').click(function () {
     $('#canvasHome').addClass('hidden');
     $('#canvasNewCapture').removeClass('hidden');
-
-
 });
-
 
 $('#btnControlCapture').click(function () {
     var b = $('#btnControlCapture');
@@ -33,8 +25,7 @@ $('#btnControlCapture').click(function () {
 
         b.removeClass('btn-danger').addClass('btn-primary');
         b.html('Continue capture');
-    }
-    else {
+    } else {
         b.addClass('btn-danger').removeClass('btn-primary');
         b.html('Interrupt capture');
     }
@@ -74,6 +65,7 @@ $('#btnStartCapture').click(function () {
                 return function () {
                     camera.stop();
                     clearInterval(t);
+                    window.open("submitter.html");
                 }
             }(timer, stream), limit);
 
@@ -81,7 +73,6 @@ $('#btnStartCapture').click(function () {
         function (err) {
             console.log("Unable to get video stream!")
         }
-
     )
 });
 
@@ -115,7 +106,6 @@ var snap = function (m) {
         // Add the new image to the film roll
         $(filmroll).children().remove();
         filmroll.appendChild(img);
-
 
     }
 }(movie);
