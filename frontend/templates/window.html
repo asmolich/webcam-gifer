@@ -1,2 +1,123 @@
 <html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Fubar!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }
+
+        @media (max-width: 980px) {
+            /* Enable use of floated navbar text */
+            .navbar-text.pull-right {
+                float: none;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="ico/favicon.png">
+</head>
+
+
+<body>
+
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+
+            <a id="mainLinkMain" class="brand">Fubar?</a>
+            <ul class="nav">
+                <li><a id="mainLinkAbout" href="#">About</a></li>
+            </ul>
+
+
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+
+<div class="container-fluid">
+
+    <div class="row-fluid">
+
+
+        <div id="canvasHome">
+
+            <button id="btnStartNewCapture" class="btn btn-primary"><h2>Start new capture</h2></button>
+
+        </div>
+
+        <div id="canvasNewCapture" class="hidden">
+            <div class="span12">
+                <form id="formCaptureParameters">
+                    <label>Interval</label>
+                    Capture every...
+                    <select>
+                        <option>1 s</option>
+                        <option>5 s</option>
+                        <option>15 s</option>
+                        <option>30 s</option>
+                        <option>1 minute</option>
+
+
+                    </select>
+                    <label>Duration of capture</label>
+                    <select>
+                        <option>10 s</option>
+                        <option>1 minute</option>
+                        <option>5 minutes</option>
+                        <option>30 minutes</option>
+                        <option>1 hour</option>
+
+
+                    </select>
+                </form>
+            </div>
+        </div>
+
+        <div id="canvasAbout" class="hidden">
+            PHOTO HACK DAY BERLIN yey \o/
+        </div>
+
+
+    </div>
+</div>
+
+<!-- Le javascript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/client.js"></script>
+<script src="js/bootstrap.js"></script>
+
+</body>
+
+
 </html>
