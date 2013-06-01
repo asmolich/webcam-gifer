@@ -1,13 +1,13 @@
-from google.appengine.ext import webapp
-
+import webapp2
 from google.appengine.ext.webapp import util
 
-from lib.images2gif import writeGif
+from lib.images2gif_custom import writeGif
 from PIL import Image
 import os
+import cStringIO
 
 
-class ImageHandler(webapp.RequestHandler):
+class ImageHandler(webapp2.RequestHandler):
     def get(self):
         path = os.path.dirname(__file__)
         file_names = sorted((fn for fn in os.listdir('static') if fn.endswith('.jpeg')))
@@ -20,15 +20,20 @@ class ImageHandler(webapp.RequestHandler):
 
         print writeGif.__doc__
 
-        filename = path + "my_gif.GIF"
-        writeGif(filename, images, duration=0.2)
+        out = cStringIO.StringIO()
 
-        self.response.out.write('Hi there! Upload images')
-        #writeGif(self.response.out, images, duration=0.2)
+        #filename = path + "my_gif.GIF"
+        #writeGif(filename, images, duration=0.2)
+
+        #self.response.out.write('Hi there! Upload images')
+
+        writeGif(out, images, duration=0.2)
+        self.response.headers['Content-Type'] = "image/gif"
+        self.response.out.write(out.getvalue())
 
 
 def main():
-    application = webapp.WSGIApplication([('/image', ImageHandler)], debug=True)
+    application = webapp2.WSGIApplication([('/image', ImageHandler)], debug=True)
     util.run_wsgi_app(application)
 
 
