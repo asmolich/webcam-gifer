@@ -1,6 +1,6 @@
 {
-    "name": "TrollFace!",
-    "description": "fubar?",
+    "name": "GifBoth",
+    "description": "Takes snapshots and generates animated gifs. Developed for PHOTO HACK DAY BERLIN 2013",
     "version": "0.1",
     "app": {
         "background": {

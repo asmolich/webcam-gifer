@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fubar!</title>
+    <title>GifBoth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -51,7 +51,7 @@
     <div class="navbar-inner">
         <div class="container-fluid">
 
-            <a id="mainLinkMain" class="brand">Fubar?</a>
+            <a id="mainLinkMain" class="brand">GifBoth</a>
             <ul class="nav">
                 <li><a id="mainLinkAbout" href="#">About</a></li>
             </ul>
@@ -70,7 +70,7 @@
 
         <div id="canvasHome">
 
-            <button id="btnStartNewCapture" class="btn btn-primary"><h2>Start new capture</h2></button>
+            <button id="btnNewCapture" class="btn btn-primary"><h2>Start new capture</h2></button>
 
         </div>
 
@@ -101,16 +101,24 @@
                 </form>
             </div>
 
+            <button id="btnStartCapture">Start!</button>
 
+        </div>
+
+        <div id="canvasCapture" class="hidden">
             <video id="live" autoplay style="width:372px; height: 279px;"></video>
             <canvas id="snapshot" style="display:none;"></canvas>
+            <canvas id="filmroll"/>
 
-            <button id="btnTakePicture">Take picture</button>
 
         </div>
 
         <div id="canvasAbout" class="hidden">
-            PHOTO HACK DAY BERLIN yey \o/
+            <h1>GifBoth</h1>
+
+            <h2>
+                PHOTO HACK DAY BERLIN yey \o/
+            </h2>
         </div>
 
 
