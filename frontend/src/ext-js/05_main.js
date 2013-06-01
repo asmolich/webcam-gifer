@@ -5,8 +5,7 @@ chrome.app.runtime.onLaunched.addListener(function () {
             'height': 500
         }
     });
-    
-    console.log ('fubar');
-    
-    
+
+    console.log('fubar');
+
 });
