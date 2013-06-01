@@ -52,7 +52,6 @@ $('#btnStartCapture').click(function () {
     console.log(pos);
     d.css(pos);
 
-
     // initialize video
     var video = document.getElementById("live");
 
@@ -70,13 +69,13 @@ $('#btnStartCapture').click(function () {
 
             }, interval);
 
-            setTimeout(function (t) {
+            setTimeout(function (t, camera) {
                 console.log('registering end of snapshot acquisition in', limit);
                 return function () {
-
+                    camera.stop();
                     clearInterval(t);
                 }
-            }(timer), limit);
+            }(timer, stream), limit);
 
         },
         function (err) {
@@ -84,35 +83,40 @@ $('#btnStartCapture').click(function () {
         }
 
     )
-
-
 });
 
+var movie = [];
 
-var snap = function () {
-    var live = document.getElementById("live");
-    var snapshot = document.getElementById("snapshot");
-    var filmroll = document.getElementById("filmroll");
+var snap = function (m) {
+    return function () {
+        var live = document.getElementById("live");
+        var snapshot = document.getElementById("snapshot");
+        var filmroll = document.getElementById("filmroll");
 
-    // Make the canvas the same size as the live video
-    snapshot.width = live.clientWidth;
-    snapshot.height = live.clientHeight;
+        // Make the canvas the same size as the live video
+        snapshot.width = live.clientWidth;
+        snapshot.height = live.clientHeight;
 
-    // Draw a frame of the live video onto the canvas
-    var c = snapshot.getContext("2d");
-    c.drawImage(live, 0, 0, snapshot.width, snapshot.height);
+        // Draw a frame of the live video onto the canvas
+        var c = snapshot.getContext("2d");
+        c.drawImage(live, 0, 0, snapshot.width, snapshot.height);
 
-    // Create an image element with the canvas image data
-    var img = document.createElement("img");
-    img.src = snapshot.toDataURL("image/png");
-    img.style.padding = 5;
-    img.width = 372;
-    img.height = 279;
+        // Create an image element with the canvas image data
+        var img = document.createElement("img");
+        var png = snapshot.toDataURL("image/png");
 
-    // Add the new image to the film roll
-    $(filmroll).children().remove();
-    filmroll.appendChild(img);
+        m.push(png.replace("image/png", "image/octet-stream"));
+
+        img.src = png;
+        img.style.padding = 5;
+        img.width = 372;
+        img.height = 279;
+
+        // Add the new image to the film roll
+        $(filmroll).children().remove();
+        filmroll.appendChild(img);
 
 
-};
+    }
+}(movie);
 
