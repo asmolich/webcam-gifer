@@ -19,25 +19,74 @@ $('#mainLinkMain').click(function () {
 });
 
 
-$('#btnStartNewCapture').click(function () {
+$('#btnNewCapture').click(function () {
     $('#canvasHome').addClass('hidden');
     $('#canvasNewCapture').removeClass('hidden');
 
 
-    var video = document.getElementById("live")
+});
+
+
+$('#btnControlCapture').click(function () {
+    var b = $('#btnControlCapture');
+    if (b.hasClass('btn-danger')) {
+
+        b.removeClass('btn-danger').addClass('btn-primary');
+        b.html('Continue capture');
+    }
+    else {
+        b.addClass('btn-danger').removeClass('btn-primary');
+        b.html('Interrupt capture');
+    }
+});
+
+$('#btnStartCapture').click(function () {
+    var cc = $('#canvasCapture');
+    $('#canvasNewCapture').addClass('hidden');
+    cc.removeClass('hidden');
+
+    var pos = $('#live').position();
+
+    var d = $('<div style="position: absolute; background-color: white; width: 800; height: 600; z-index: 100;"></div>');
+    cc.append(d);
+    console.log(pos);
+    d.css(pos);
+
+
+    // initialize video
+    var video = document.getElementById("live");
 
     navigator.webkitGetUserMedia({video: true },
         function (stream) {
             video.src = window.webkitURL.createObjectURL(stream)
+
+            var f = $('#formCaptureParameters');
+            var limit = f.find('select[name=captureDuration]').val() * 1000;
+            var interval = f.find('select[name=captureInterval]').val() * 1000;
+
+            var timer = setInterval(function () {
+                console.log('acquiring snapshot');
+                snap();
+
+            }, interval);
+
+            setTimeout(function (t) {
+                console.log('registering end of snapshot acquisition in', limit);
+                return function () {
+
+                    clearInterval(t);
+                }
+            }(timer), limit);
+
         },
         function (err) {
             console.log("Unable to get video stream!")
         }
+
     )
 
-});
 
-// initilize video
+});
 
 
 var snap = function () {
@@ -57,16 +106,13 @@ var snap = function () {
     var img = document.createElement("img");
     img.src = snapshot.toDataURL("image/png");
     img.style.padding = 5;
-    img.width = snapshot.width / 2;
-    img.height = snapshot.height / 2;
+    img.width = 372;
+    img.height = 279;
 
     // Add the new image to the film roll
+    $(filmroll).children().remove();
     filmroll.appendChild(img);
 
 
 };
-
-
-$('#btnTakePicture').click(snap);
-
 

@@ -77,38 +77,44 @@
         <div id="canvasNewCapture" class="hidden">
             <div class="span12">
                 <form id="formCaptureParameters">
-                    <label>Interval</label>
-                    Capture every...
-                    <select>
-                        <option>1 s</option>
-                        <option>5 s</option>
-                        <option>15 s</option>
-                        <option>30 s</option>
-                        <option>1 minute</option>
+                    <fieldset>
+                        <label>Capture interval</label>
 
+                        <select name="captureInterval">
+                            <option value="1">1 s</option>
+                            <option value="5">5 s</option>
+                            <option value="15">15 s</option>
+                            <option value="30">30 s</option>
+                            <option value="60">1 minute</option>
 
-                    </select>
-                    <label>Duration of capture</label>
-                    <select>
-                        <option>10 s</option>
-                        <option>1 minute</option>
-                        <option>5 minutes</option>
-                        <option>30 minutes</option>
-                        <option>1 hour</option>
+                        </select>
+                        <label>Duration of capture</label>
+                        <select name="captureDuration">
+                            <option value="10">10 s</option>
+                            <option value="60">1 minute</option>
+                            <option value="300">5 minutes</option>
+                            <option value="1800">30 minutes</option>
+                            <option value="3600">1 hour</option>
 
-
-                    </select>
+                        </select>
+                    </fieldset>
                 </form>
             </div>
 
-            <button id="btnStartCapture">Start!</button>
+            <button id="btnStartCapture" class="btn btn-primary">Start!</button>
 
         </div>
 
         <div id="canvasCapture" class="hidden">
-            <video id="live" autoplay style="width:372px; height: 279px;"></video>
-            <canvas id="snapshot" style="display:none;"></canvas>
-            <canvas id="filmroll"/>
+
+            <h3>Capture in progress</h3>
+            <button id="btnControlCapture" class="btn btn-danger">Interrupt capture</button>
+            <div id="filmroll" style="width:372px; height: 279px;"></div>
+            
+            <div id="canvasVideoOutput" style="z-index: -1;">
+                <video id="live" autoplay style="width:800px; height: 600px;"></video>
+                <canvas id="snapshot" style="display:none;"></canvas>
+            </div>
 
 
         </div>
@@ -116,9 +122,9 @@
         <div id="canvasAbout" class="hidden">
             <h1>GifBoth</h1>
 
-            <h2>
+            <h3>
                 PHOTO HACK DAY BERLIN yey \o/
-            </h2>
+            </h3>
         </div>
 
 
