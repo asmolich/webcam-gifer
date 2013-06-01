@@ -1,6 +1,8 @@
 import webapp2
 from google.appengine.ext.webapp import util
 
+upload_url = '/upload'
+
 
 class HwHandler(webapp2.RequestHandler):
     def get(self):
