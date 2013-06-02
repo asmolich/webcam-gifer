@@ -1,15 +1,16 @@
 import webapp2
 from google.appengine.ext.webapp import util
 
-upload_url = '/upload'
-
 
 class HwHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.out.write('<html><body>')
-        self.response.out.write('<form action="%s" method="POST" enctype="multipart/form-data">' % upload_url)
-        self.response.out.write("""Upload File: <input type="file" name="file"><br> <input type="submit"
-            name="submit" value="Submit"> </form></body></html>""")
+        self.response.out.write("""
+            <html><body><form action="/upload" method="get">Upload File:<br/>
+            <input type="file" name="file" /><br/>
+            <input type="file" name="file" /><br/>
+            <input type="file" name="file" /><br/>
+            <input type="submit" name="submit" value="Submit" />
+            </form></body></html>""")
 
 
 def main():
