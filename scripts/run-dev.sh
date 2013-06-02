@@ -1,2 +1,3 @@
 #!/bin/sh
-dev_appserver.py ../backend/
+cd backend
+dev_appserver.py .

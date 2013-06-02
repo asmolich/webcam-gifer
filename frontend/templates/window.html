@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>GifBoth</title>
+    <title>GifBooth</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -51,7 +51,7 @@
     <div class="navbar-inner">
         <div class="container-fluid">
 
-            <a id="mainLinkMain" class="brand">GifBoth</a>
+            <a id="mainLinkMain" class="brand">GifBooth</a>
             <ul class="nav">
                 <li><a id="mainLinkAbout" href="#">About</a></li>
             </ul>
@@ -81,6 +81,7 @@
                         <label>Capture interval</label>
 
                         <select name="captureInterval">
+                            <option value="0.5">0.5 s</option>
                             <option value="1">1 s</option>
                             <option value="5">5 s</option>
                             <option value="15">15 s</option>
@@ -110,17 +111,18 @@
             <h3>Capture in progress</h3>
             <button id="btnControlCapture" class="btn btn-danger">Interrupt capture</button>
             <div id="filmroll" style="width:372px; height: 279px;"></div>
-            
+
             <div id="canvasVideoOutput" style="z-index: -1;">
                 <video id="live" autoplay style="width:800px; height: 600px;"></video>
                 <canvas id="snapshot" style="display:none;"></canvas>
             </div>
+        </div>
 
-
+        <div id="canvasAnimatedCapture" class="hidden">
         </div>
 
         <div id="canvasAbout" class="hidden">
-            <h1>GifBoth</h1>
+            <h1>GifBooth</h1>
 
             <h3>
                 PHOTO HACK DAY BERLIN yey \o/
