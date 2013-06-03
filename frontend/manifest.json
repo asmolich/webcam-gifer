@@ -1,5 +1,5 @@
 {
-    "name": "GifBoth",
+    "name": "GifBooth",
     "description": "Takes snapshots and generates animated gifs. Developed for PHOTO HACK DAY BERLIN 2013",
     "version": "0.1",
     "app": {
@@ -7,5 +7,10 @@
             "scripts": ["app.js"]
         }
     },
-   
-    "permissions": [  "videoCapture", "audioCapture" ]}
+
+
+    "permissions": [
+        "videoCapture", "audioCapture", "webview",
+        "http://troll-with-friends.appspot.com/"
+    ]
+}
