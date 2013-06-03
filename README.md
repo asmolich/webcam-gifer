@@ -1,7 +1,7 @@
-Webcam gifer 
+webcam gifer 
 ============
 
-Troll pictures of your friends.
+Collects pictures from your webcam and returns an animated gif.
 
 Project developed for Photo HackDay Berlin Hackaton (2013.06.01-02)
 
